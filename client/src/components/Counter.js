@@ -11,8 +11,10 @@ class Counter extends React.Component {
     };
     this.handleStartTimer = this.handleStartTimer.bind(this);
     this.handlePauseTimer = this.handlePauseTimer.bind(this);
+    this.handleResetTimer = this.handleResetTimer.bind(this);
     this.decrement = this.decrement.bind(this);
     this.formatTime = this.formatTime.bind(this);
+    
   }
   handleStartTimer() {
     console.log("Starting timer.");
@@ -29,11 +31,17 @@ class Counter extends React.Component {
   handlePauseTimer() {
     this.setState({ paused: true });
   }
+
+  handleResetTimer(){
+    clearInterval(this.timer);
+    this.setState({time: 0, started: false, paused: false});
+  }
   decrement() {
     if (this.state.time > 0 && !this.state.paused) {
       this.setState({ time: this.state.time - 1 });
-    } else if (this.state.time === 0) {
+    } else if (this.state.time === 0 && this.state.started) {
       this.setState({ started: false, paused: false });
+      alert('TIMES UP')
     }
   }
   formatTime(seconds) {
@@ -45,7 +53,6 @@ class Counter extends React.Component {
   render() {
     return (
       <div>
-        <h2>Counter</h2>
         <h3> Time Remaining</h3>
         <p>{this.formatTime(this.state.time)}</p>
         <button
@@ -60,6 +67,7 @@ class Counter extends React.Component {
         >
           Pause
         </button>
+        <button onClick={this.handleResetTimer}>Reset</button>
       </div>
     );
   }
