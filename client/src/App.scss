@@ -1,0 +1,33 @@
+
+/* SCSS HEX */
+$imperial-red: #e63946ff;
+$honeydew: #f1faeeff;
+$powder-blue: #a8dadcff;
+$celadon-blue: #457b9dff;
+$prussian-blue: #1d3557ff;
+
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: $imperial-red;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: $honeydew;
+}
+
+button {
+  border: 0;
+  font-size: 30px;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+}
+
+
+

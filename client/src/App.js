@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import Counter from './components/Counter'
 function App() {
   return (
